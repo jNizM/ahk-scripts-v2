@@ -8,6 +8,10 @@
 	- EnumInstalledApps (Gets general information about an application.)
 
 
+- ### FileObject
+	- FileCountLines (Count the number of lines in a text file.)
+
+
 - ### Network
 	- GetAdaptersInfo (Gets network adapter information for the local computer.)
     - GetDnsServerList (Gets a list of DNS servers for the local computer.)
