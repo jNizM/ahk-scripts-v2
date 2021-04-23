@@ -4,6 +4,10 @@
 
 ## Functions & Script Examples
 
+- ### ComObj
+	- EnumInstalledApps (Gets general information about an application.)
+
+
 - ### Network
 	- GetAdaptersInfo (Gets network adapter information for the local computer.)
     - GetDnsServerList (Gets a list of DNS servers for the local computer.)
