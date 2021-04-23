@@ -10,6 +10,7 @@
 
 - ### FileObject
 	- FileCountLines (Count the number of lines in a text file.)
+	- FileFindWord (Finds a specific word / string in a text file.)
 
 
 - ### Network
