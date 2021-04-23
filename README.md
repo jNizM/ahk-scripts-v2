@@ -4,7 +4,7 @@
 
 ## Functions & Script Examples
 
-- ### ComObj
+- ### ComObject
 	- EnumInstalledApps (Gets general information about an application.)
 
 
