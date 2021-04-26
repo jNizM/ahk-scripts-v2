@@ -1,6 +1,6 @@
 ﻿; ===============================================================================================================================
 ; Gets network adapter information for the local computer.
-; Tested with AutoHotkey v2.0-a132
+; Tested with AutoHotkey v2.0-a133
 ; ===============================================================================================================================
 
 GetAdaptersInfo()
@@ -14,7 +14,7 @@ GetAdaptersInfo()
 
 	if (DllCall("iphlpapi\GetAdaptersInfo", "ptr", 0, "uint*", &size := 0) = ERROR_BUFFER_OVERFLOW)
 	{
-		buf := BufferAlloc(size, 0)
+		buf := Buffer(size, 0)
 		if (DllCall("iphlpapi\GetAdaptersInfo", "ptr", buf, "uint*", size) = ERROR_SUCCESS)
 		{
 			ADAPTER_INFO := Map()

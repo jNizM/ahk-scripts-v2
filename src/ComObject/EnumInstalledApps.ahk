@@ -1,6 +1,6 @@
 ﻿; ===============================================================================================================================
 ; Gets general information about an application (from the Add/Remove Programs Application).
-; Tested with AutoHotkey v2.0-a132
+; Tested with AutoHotkey v2.0-a133
 ; ===============================================================================================================================
 
 EnumInstalledApps()
@@ -15,7 +15,7 @@ EnumInstalledApps()
 	EnumInstalledApps := ComObject(CLSID_EnumInstalledApps, IID_IEnumInstalledApps)
 	while !(ComCall(3, EnumInstalledApps, "ptr*", &IShellApp := 0, "uint"))
 	{
-		AppInfoData := BufferAlloc(8 + (A_PtrSize * 18), 0)
+		AppInfoData := Buffer(8 + (A_PtrSize * 18), 0)
 		NumPut("uint", AppInfoData.size, AppInfoData, 0)
 		NumPut("uint", 0x0EDFFF, AppInfoData, 4)
 		if !(ComCall(3, IShellApp, "ptr", AppInfoData))

@@ -1,6 +1,6 @@
 ﻿; ===============================================================================================================================
 ; Gets a list of DNS servers for the local computer.
-; Tested with AutoHotkey v2.0-a132
+; Tested with AutoHotkey v2.0-a133
 ; ===============================================================================================================================
 
 GetDnsServerList()
@@ -10,7 +10,7 @@ GetDnsServerList()
 
 	if (DllCall("iphlpapi\GetNetworkParams", "ptr", 0, "uint*", &len := 0) = ERROR_BUFFER_OVERFLOW)
 	{
-		buf := BufferAlloc(len, 0)
+		buf := Buffer(len, 0)
 		if (DllCall("iphlpapi\GetNetworkParams", "ptr", buf, "uint*", len) = ERROR_SUCCESS)
 		{
 			DNS_SERVERS := Array()
