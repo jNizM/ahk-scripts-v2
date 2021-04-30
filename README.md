@@ -18,6 +18,7 @@
 	- GetAdaptersInfo (Gets network adapter information for the local computer.)
     - GetDnsServerList (Gets a list of DNS servers for the local computer.)
 	- ResolveHostname (Gets the IP Address from a Hostname.)
+	- ReverseLookup (Gets the Hostname by the IP Adresse.)
 
 
 ## Copyright and License
