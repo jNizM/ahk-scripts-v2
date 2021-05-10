@@ -21,6 +21,9 @@
 	- ReverseLookup (Gets the Hostname by the IP Adresse.)
 
 
+- ### Others
+	- GetFileVersionInfo (Retrieves specified version information from the specified version-information resource.)
+
 ## Copyright and License
 [The Unlicense](LICENSE)
 
