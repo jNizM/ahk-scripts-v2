@@ -12,6 +12,7 @@
 	- FileCountLines (Count the number of lines in a text file.)
 	- FileFindString (Finds a specific word / string in a text file.)
 	- FileReadLastLines (Read last x lines of a text file.)
+	- GetFilePEHeader (Get the PE File Header information - Machine Type.)
 
 
 - ### Network
@@ -23,6 +24,7 @@
 
 - ### Others
 	- GetFileVersionInfo (Retrieves specified version information from the specified version-information resource.)
+
 
 ## Copyright and License
 [The Unlicense](LICENSE)
