@@ -23,6 +23,7 @@
 
 
 - ### Others
+	- CreateGUID (Creates an Globally Unique IDentifier)
 	- CreateUUID (Creates an Universally Unique IDentifier)
 	- GetFileVersionInfo (Retrieves specified version information from the specified version-information resource.)
 
