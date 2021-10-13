@@ -36,7 +36,7 @@
 
 
 ## Copyright and License
-[The Unlicense](LICENSE)
+[MIT License](LICENSE)
 
 
 ## Donations (PayPal)
