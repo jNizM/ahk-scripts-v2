@@ -18,7 +18,7 @@ GetCurrencyFormatEx(Value, LocaleName := "!x-sys-default-locale")
 
 ; ===========================================================================================================================================================================
 
-MsgBox GetCurrencyFormatEx(1149.99)					; 1.149,99 €		( LANG_USER_DEFAULT | SUBLANG_DEFAULT    )		(GERMAN HERE)
-MsgBox GetCurrencyFormatEx(1149.99, "en-US")		; $1,149.99			( LANG_ENGLISH      | SUBLANG_ENGLISH_US )
-MsgBox GetCurrencyFormatEx(1149.99, "en-GB")		; £1,149.99			( LANG_ENGLISH      | SUBLANG_ENGLISH_UK )
-MsgBox GetCurrencyFormatEx(1149.99, "de-DE")		; 1.149,99 €		( LANG_GERMAN       | SUBLANG_GERMAN     )
+MsgBox GetCurrencyFormatEx(1149.99)             ; 1.149,99 €    ( LANG_USER_DEFAULT | SUBLANG_DEFAULT    )    (GERMAN HERE)
+MsgBox GetCurrencyFormatEx(1149.99, "en-US")    ; $1,149.99     ( LANG_ENGLISH      | SUBLANG_ENGLISH_US )
+MsgBox GetCurrencyFormatEx(1149.99, "en-GB")    ; £1,149.99     ( LANG_ENGLISH      | SUBLANG_ENGLISH_UK )
+MsgBox GetCurrencyFormatEx(1149.99, "de-DE")    ; 1.149,99 €    ( LANG_GERMAN       | SUBLANG_GERMAN     )

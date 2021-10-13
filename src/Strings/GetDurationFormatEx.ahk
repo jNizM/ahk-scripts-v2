@@ -18,7 +18,7 @@ GetDurationFormatEx(Duration, Format := "", LocaleName := "!x-sys-default-locale
 
 ; ===========================================================================================================================================================================
 
-MsgBox GetDurationFormatEx(817000)									; 13:37
-MsgBox GetDurationFormatEx(421337, "hh:mm:ss.fff")					; 00:07:01.337
-MsgBox GetDurationFormatEx(2520000, "mm' Minutes")					; 42 Minutes
-MsgBox GetDurationFormatEx(43140000, "hh' Hours and 'mm' Minutes")	; 11 Hours and 59 Minutes
+MsgBox GetDurationFormatEx(817000)                                    ; 13:37
+MsgBox GetDurationFormatEx(421337, "hh:mm:ss.fff")                    ; 00:07:01.337
+MsgBox GetDurationFormatEx(2520000, "mm' Minutes")                    ; 42 Minutes
+MsgBox GetDurationFormatEx(43140000, "hh' Hours and 'mm' Minutes")    ; 11 Hours and 59 Minutes

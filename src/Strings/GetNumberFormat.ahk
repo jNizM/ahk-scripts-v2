@@ -18,7 +18,7 @@ GetNumberFormat(Value, Locale := 0x0400)
 
 ; ===========================================================================================================================================================================
 
-MsgBox GetNumberFormat(1149.99)				; 1.149,99			( LANG_USER_DEFAULT | SUBLANG_DEFAULT    )		(GERMAN HERE)
-MsgBox GetNumberFormat(1149.99, 0x0409)		; 1,149.99			( LANG_ENGLISH      | SUBLANG_ENGLISH_US )
-MsgBox GetNumberFormat(1149.99, 0x0809)		; 1,149.99			( LANG_ENGLISH      | SUBLANG_ENGLISH_UK )
-MsgBox GetNumberFormat(1149.99, 0x0407)		; 1.149,99			( LANG_GERMAN       | SUBLANG_GERMAN     )
+MsgBox GetNumberFormat(1149.99)            ; 1.149,99    ( LANG_USER_DEFAULT | SUBLANG_DEFAULT    )    (GERMAN HERE)
+MsgBox GetNumberFormat(1149.99, 0x0409)    ; 1,149.99    ( LANG_ENGLISH      | SUBLANG_ENGLISH_US )
+MsgBox GetNumberFormat(1149.99, 0x0809)    ; 1,149.99    ( LANG_ENGLISH      | SUBLANG_ENGLISH_UK )
+MsgBox GetNumberFormat(1149.99, 0x0407)    ; 1.149,99    ( LANG_GERMAN       | SUBLANG_GERMAN     )
