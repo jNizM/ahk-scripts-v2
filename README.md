@@ -30,6 +30,7 @@
 
 - ### Strings
 	- GetCurrencyFormat (Formats a number string as a currency string for a locale specified by identifier.)
+	- GetCurrencyFormatEx (Formats a number string as a currency string for a locale specified by name.)
 
 
 ## Copyright and License
