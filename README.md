@@ -31,6 +31,7 @@
 - ### Strings
 	- GetCurrencyFormat (Formats a number string as a currency string for a locale specified by identifier.)
 	- GetCurrencyFormatEx (Formats a number string as a currency string for a locale specified by name.)
+	- GetDurationFormat (Formats a duration of time as a time string for a locale specified by identifier.)
 	- GetNumberFormat (Formats a number string as a number string customized for a locale specified by identifier.)
 	- GetNumberFormatEx (Formats a number string as a number string customized for a locale specified by name.)
 
