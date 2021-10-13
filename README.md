@@ -28,6 +28,10 @@
 	- GetFileVersionInfo (Retrieves specified version information from the specified version-information resource.)
 
 
+- ### Strings
+	- GetCurrencyFormat (Formats a number string as a currency string for a locale specified by identifier.)
+
+
 ## Copyright and License
 [The Unlicense](LICENSE)
 
