@@ -22,6 +22,10 @@
 	- ReverseLookup (Gets the Hostname by the IP Adresse.)
 
 
+- ### Network
+	- WM_DEVICECHANGE (Detecting Media Insertion or Removal.)
+
+
 - ### Others
 	- CreateGUID (Creates an Globally Unique IDentifier)
 	- CreateUUID (Creates an Universally Unique IDentifier)
