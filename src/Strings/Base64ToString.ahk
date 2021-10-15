@@ -19,4 +19,4 @@ Base64ToString(Base64)
 
 ; ===========================================================================================================================================================================
 
-MsgBox Base64ToString("VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZw==")
+MsgBox Base64ToString("VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZwA=")    ; The quick brown fox jumps over the lazy dog
