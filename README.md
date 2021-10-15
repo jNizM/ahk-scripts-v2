@@ -40,6 +40,7 @@
 	- GetDurationFormatEx (Formats a duration of time as a time string for a locale specified by name.)
 	- GetNumberFormat (Formats a number string as a number string customized for a locale specified by identifier.)
 	- GetNumberFormatEx (Formats a number string as a number string customized for a locale specified by name.)
+	- StringToBase64 (Converts a readable string to a base64 string.)
 
 
 ## Copyright and License
