@@ -34,6 +34,7 @@
 
 - ### Strings
 	- Base64ToString (Converts a base64 string to a readable string.)
+	- CountLeadingChar (Count how often a certain character occurs at the beginning of a string.)
 	- GetCurrencyFormat (Formats a number string as a currency string for a locale specified by identifier.)
 	- GetCurrencyFormatEx (Formats a number string as a currency string for a locale specified by name.)
 	- GetDurationFormat (Formats a duration of time as a time string for a locale specified by identifier.)
