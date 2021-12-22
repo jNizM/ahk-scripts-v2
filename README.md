@@ -46,6 +46,7 @@
 
 - ### SystemInformation (NtQuerySystemInformation)
 	- SystemPerformanceInformation (SYSTEM_PERFORMANCE_INFORMATION)
+	- SystemProcessInformation (SYSTEM_PROCESS_INFORMATION)
 	- SystemProcessorInformation (SYSTEM_PROCESSOR_INFORMATION)
 
 
