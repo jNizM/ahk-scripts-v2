@@ -10,9 +10,9 @@ SystemSecureBootInformation()
 	static STATUS_SUCCESS                := 0x00000000
 	static SYSTEM_SECUREBOOT_INFORMATION := 0x00000091
 
-	DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_SECUREBOOT_INFORMATION, "Ptr", 0, "UInt", 0, "UInt*", &Size := 0)
+	DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_SECUREBOOT_INFORMATION, "Ptr", 0, "UInt", 0, "UInt*", &Size := 0, "UInt")
 	Buf := Buffer(Size, 0)
-	if (DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_SECUREBOOT_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", 0) = STATUS_SUCCESS)
+	if (DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_SECUREBOOT_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", 0, "UInt") = STATUS_SUCCESS)
 	{
 		SECUREBOOT_INFORMATION := Map()
 		SECUREBOOT_INFORMATION["SecureBootEnabled"] := NumGet(Buf, 0x0000, "UChar")

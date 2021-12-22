@@ -10,9 +10,9 @@ SystemProcessorPowerInformation()
 	static STATUS_SUCCESS                     := 0x00000000
 	static SYSTEM_PROCESSOR_POWER_INFORMATION := 0x0000003D
 
-	DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_POWER_INFORMATION, "Ptr", 0, "UInt", 0, "UInt*", &Size := 0)
+	DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_POWER_INFORMATION, "Ptr", 0, "UInt", 0, "UInt*", &Size := 0, "UInt")
 	Buf := Buffer(Size, 0)
-	if (DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_POWER_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", 0) = STATUS_SUCCESS)
+	if (DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_POWER_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", 0, "UInt") = STATUS_SUCCESS)
 	{
 		PROCESSOR_POWER_INFORMATION := Map()
 		PROCESSOR_POWER_INFORMATION["CurrentFrequency"]          := NumGet(Buf, 0x0000, "UChar")

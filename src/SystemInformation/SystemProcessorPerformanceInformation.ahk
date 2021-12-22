@@ -10,9 +10,9 @@ SystemProcessorPerformanceInformation()
 	static STATUS_SUCCESS                           := 0x00000000
 	static SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION := 0x00000008
 
-	DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION, "Ptr", 0, "UInt", 0, "UInt*", &Size := 0)
+	DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION, "Ptr", 0, "UInt", 0, "UInt*", &Size := 0, "UInt")
 	Buf := Buffer(Size, 0)
-	if (DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", 0) = STATUS_SUCCESS)
+	if (DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", 0, "UInt") = STATUS_SUCCESS)
 	{
 		DEVICE_INFORMATION := Map()
 		DEVICE_INFORMATION["IdleTime"]       := NumGet(Buf, 0x0000, "Int64")

@@ -10,9 +10,9 @@ SystemProcessorInformation()
 	static STATUS_SUCCESS               := 0x00000000
 	static SYSTEM_PROCESSOR_INFORMATION := 0x00000001
 
-	DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_INFORMATION, "Ptr", 0, "UInt", 0, "UInt*", &Size := 0)
+	DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_INFORMATION, "Ptr", 0, "UInt", 0, "UInt*", &Size := 0, "UInt")
 	Buf := Buffer(Size, 0)
-	if (DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", 0) = STATUS_SUCCESS)
+	if (DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", 0, "UInt") = STATUS_SUCCESS)
 	{
 		PROCESSOR_INFORMATION := Map()
 		PROCESSOR_INFORMATION["ProcessorArchitecture"] := NumGet(Buf, 0x0000, "UShort")
