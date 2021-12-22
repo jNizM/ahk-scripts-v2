@@ -7,12 +7,20 @@ SystemProcessInformation()
 {
 	#DllLoad "ntdll.dll"
 
-	static STATUS_SUCCESS             := 0x00000000
-	static SYSTEM_PROCESS_INFORMATION := 0x00000005
+	static STATUS_SUCCESS              := 0x00000000
+	static STATUS_INFO_LENGTH_MISMATCH := 0xC0000004
+	static SYSTEM_PROCESS_INFORMATION  := 0x00000005
 
-	DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESS_INFORMATION, "Ptr", 0, "UInt", 0, "UInt*", &Size := 0, "UInt")
-	Buf := Buffer(Size, 0)
-	if (DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESS_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", 0, "UInt") = STATUS_SUCCESS)
+	Buf := Buffer(0x0100, 0)
+	NT_STATUS := DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESS_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", &Size := 0, "UInt")
+
+	while (NT_STATUS = STATUS_INFO_LENGTH_MISMATCH)
+	{
+		Buf := Buffer(Size, 0)
+		NT_STATUS := DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESS_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", &Size := 0, "UInt")
+	}
+
+	if (NT_STATUS = STATUS_SUCCESS)
 	{
 		PROCESS_INFORMATION := Map()
 		Addr := Buf.Ptr
@@ -60,6 +68,7 @@ SystemProcessInformation()
 		}
 		return PROCESS_INFORMATION
 	}
+
 	return false
 }
 

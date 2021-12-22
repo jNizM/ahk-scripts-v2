@@ -8,11 +8,19 @@ SystemProcessorInformation()
 	#DllLoad "ntdll.dll"
 
 	static STATUS_SUCCESS               := 0x00000000
+	static STATUS_INFO_LENGTH_MISMATCH  := 0xC0000004
 	static SYSTEM_PROCESSOR_INFORMATION := 0x00000001
 
-	DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_INFORMATION, "Ptr", 0, "UInt", 0, "UInt*", &Size := 0, "UInt")
-	Buf := Buffer(Size, 0)
-	if (DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", 0, "UInt") = STATUS_SUCCESS)
+	Buf := Buffer(0x000C, 0)
+	NT_STATUS := DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", &Size := 0, "UInt")
+
+	while (NT_STATUS = STATUS_INFO_LENGTH_MISMATCH)
+	{
+		Buf := Buffer(Size, 0)
+		NT_STATUS := DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", &Size := 0, "UInt")
+	}
+
+	if (NT_STATUS = STATUS_SUCCESS)
 	{
 		PROCESSOR_INFORMATION := Map()
 		PROCESSOR_INFORMATION["ProcessorArchitecture"] := NumGet(Buf, 0x0000, "UShort")
@@ -22,6 +30,7 @@ SystemProcessorInformation()
 		PROCESSOR_INFORMATION["ProcessorFeatureBits"]  := NumGet(Buf, 0x0008, "UInt")
 		return PROCESSOR_INFORMATION
 	}
+
 	return false
 }
 

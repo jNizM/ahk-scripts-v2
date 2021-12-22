@@ -8,11 +8,19 @@ SystemProcessorPowerInformation()
 	#DllLoad "ntdll.dll"
 
 	static STATUS_SUCCESS                     := 0x00000000
+	static STATUS_INFO_LENGTH_MISMATCH        := 0xC0000004
 	static SYSTEM_PROCESSOR_POWER_INFORMATION := 0x0000003D
 
-	DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_POWER_INFORMATION, "Ptr", 0, "UInt", 0, "UInt*", &Size := 0, "UInt")
-	Buf := Buffer(Size, 0)
-	if (DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_POWER_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", 0, "UInt") = STATUS_SUCCESS)
+	Buf := Buffer(0x0030, 0)
+	NT_STATUS := DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_POWER_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", &Size := 0, "UInt")
+
+	while (NT_STATUS = STATUS_INFO_LENGTH_MISMATCH)
+	{
+		Buf := Buffer(Size, 0)
+		NT_STATUS := DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_POWER_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", &Size := 0, "UInt")
+	}
+
+	if (NT_STATUS = STATUS_SUCCESS)
 	{
 		PROCESSOR_POWER_INFORMATION := Map()
 		PROCESSOR_POWER_INFORMATION["CurrentFrequency"]          := NumGet(Buf, 0x0000, "UChar")
@@ -37,6 +45,7 @@ SystemProcessorPowerInformation()
 		PROCESSOR_POWER_INFORMATION["Energy"]                    := NumGet(Buf, 0x0048, "UInt64")
 		return PROCESSOR_POWER_INFORMATION
 	}
+
 	return false
 }
 
