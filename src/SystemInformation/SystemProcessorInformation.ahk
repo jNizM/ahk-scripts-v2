@@ -15,11 +15,11 @@ SystemProcessorInformation()
 	if !(DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", 0))
 	{
 		PROCESSOR_INFORMATION := Map()
-		PROCESSOR_INFORMATION["ProcessorArchitecture"] := NumGet(Buf, 0, "UShort")
-		PROCESSOR_INFORMATION["ProcessorLevel"]        := NumGet(Buf, 2, "UShort")
-		PROCESSOR_INFORMATION["ProcessorRevision"]     := NumGet(Buf, 4, "UShort")
-		PROCESSOR_INFORMATION["MaximumProcessors"]     := NumGet(Buf, 6, "UShort")
-		PROCESSOR_INFORMATION["ProcessorFeatureBits"]  := NumGet(Buf, 8, "UInt")
+		PROCESSOR_INFORMATION["ProcessorArchitecture"] := NumGet(Buf, 0x0000, "UShort")
+		PROCESSOR_INFORMATION["ProcessorLevel"]        := NumGet(Buf, 0x0002, "UShort")
+		PROCESSOR_INFORMATION["ProcessorRevision"]     := NumGet(Buf, 0x0004, "UShort")
+		PROCESSOR_INFORMATION["MaximumProcessors"]     := NumGet(Buf, 0x0006, "UShort")
+		PROCESSOR_INFORMATION["ProcessorFeatureBits"]  := NumGet(Buf, 0x0008, "UInt")
 		return PROCESSOR_INFORMATION
 	}
 	return false
