@@ -44,6 +44,10 @@
 	- StringToBase64 (Converts a readable string to a base64 string.)
 
 
+- ### SystemInformation (NtQuerySystemInformation)
+	- SystemProcessorInformation (SYSTEM_PROCESSOR_INFORMATION)
+
+
 ## Copyright and License
 [MIT License](LICENSE)
 
