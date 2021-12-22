@@ -51,6 +51,7 @@
 	- SystemProcessorInformation (SYSTEM_PROCESSOR_INFORMATION)
 	- SystemProcessorPerformanceInformation (SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION)
 	- SystemProcessorPowerInformation (SYSTEM_PROCESSOR_POWER_INFORMATION)
+	- SystemSecureBootInformation (SYSTEM_SECUREBOOT_INFORMATION)
 
 
 ## Copyright and License
