@@ -9,12 +9,13 @@ SystemProcessInformation()
 
 	static STATUS_SUCCESS              := 0x00000000
 	static STATUS_INFO_LENGTH_MISMATCH := 0xC0000004
+	static STATUS_BUFFER_TOO_SMALL     := 0xC0000023
 	static SYSTEM_PROCESS_INFORMATION  := 0x00000005
 
 	Buf := Buffer(0x0100, 0)
 	NT_STATUS := DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESS_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", &Size := 0, "UInt")
 
-	while (NT_STATUS = STATUS_INFO_LENGTH_MISMATCH)
+	while (NT_STATUS = STATUS_INFO_LENGTH_MISMATCH) || (NT_STATUS = STATUS_BUFFER_TOO_SMALL)
 	{
 		Buf := Buffer(Size, 0)
 		NT_STATUS := DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESS_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", &Size := 0, "UInt")
