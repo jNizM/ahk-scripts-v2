@@ -50,6 +50,7 @@
 	- SystemProcessInformation (SYSTEM_PROCESS_INFORMATION)
 	- SystemProcessorInformation (SYSTEM_PROCESSOR_INFORMATION)
 	- SystemProcessorPerformanceInformation (SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION)
+	- SystemProcessorPowerInformation (SYSTEM_PROCESSOR_POWER_INFORMATION)
 
 
 ## Copyright and License
