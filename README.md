@@ -26,6 +26,10 @@
 	- WM_DEVICECHANGE (Detecting Media Insertion or Removal.)
 
 
+- ### NetworkManagement
+	- NetGetJoinInformation (Retrieves join status information for the specified computer.)
+
+
 - ### Others
 	- CreateGUID (Creates an Globally Unique IDentifier)
 	- CreateUUID (Creates an Universally Unique IDentifier)
