@@ -13,7 +13,7 @@ NetGetJoinInformation(Server := "127.0.0.1")
 	NET_API_STATUS := DllCall("netapi32\NetGetJoinInformation", "WStr", Server
 	                                                          , "Ptr*", &Buf := 0
 	                                                          , "Int*", &Status := 0
-															  , "UInt")
+	                                                          , "UInt")
 
 	if (NET_API_STATUS = NERR_SUCCESS)
 	{
