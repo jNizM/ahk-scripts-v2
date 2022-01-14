@@ -30,6 +30,7 @@
 	- NetGetJoinInformation (Retrieves join status information for the specified computer.)
 	- NetGroupEnum (Retrieves information about each global group in the security database, which is the SAM database or the Active Directory.)
 	- NetGroupGetInfo (Retrieves information about a particular global group in the security database, which is the SAM database or the Active Directory.)
+	- NetGroupGetUsers (Retrieves a list of the members in a particular global group in the security database, which is the SAM database or the Active Directory.)
 
 
 - ### Others
