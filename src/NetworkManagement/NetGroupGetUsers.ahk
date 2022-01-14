@@ -27,7 +27,7 @@ NetGroupGetUsers(GroupName, ServerName := "127.0.0.1")
 		GROUP_USERS_INFO := Array()
 		loop EntriesRead
 		{
-			GROUP_USERS_INFO.Push((Ptr := NumGet(Buf, A_PtrSize * 0, "Ptr")) ? StrGet(Ptr) : "")
+			GROUP_USERS_INFO.Push((Ptr := NumGet(Addr, A_PtrSize * 0, "Ptr")) ? StrGet(Ptr) : "")
 			Addr += A_PtrSize
 		}
 
