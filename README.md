@@ -33,6 +33,7 @@
 	- NetGroupGetUsers (Retrieves a list of the members in a particular global group in the security database, which is the SAM database or the Active Directory.)
 	- NetLocalGroupEnum (Returns information about each local group account on the specified server.)
 	- NetLocalGroupGetInfo (Retrieves information about a particular local group account on a server.)
+	- NetLocalGroupGetMembers (Retrieves a list of the members of a particular local group in the security database)
 
 
 - ### Others
