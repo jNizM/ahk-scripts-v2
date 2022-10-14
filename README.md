@@ -15,16 +15,16 @@
 	- GetFilePEHeader (Get the PE File Header information - Machine Type.)
 
 
+- ### Message
+	- WM_DEVICECHANGE (Detecting Media Insertion or Removal.)
+
+
 - ### Network
 	- GetAdaptersInfo (Gets network adapter information for the local computer.)
     - GetDnsServerList (Gets a list of DNS servers for the local computer.)
 	- GetNetworkConnectivityHint (Retrieves the level and cost of network connectivity.)
 	- ResolveHostname (Gets the IP Address from a Hostname.)
 	- ReverseLookup (Gets the Hostname by the IP Adresse.)
-
-
-- ### Network
-	- WM_DEVICECHANGE (Detecting Media Insertion or Removal.)
 
 
 - ### NetworkManagement
