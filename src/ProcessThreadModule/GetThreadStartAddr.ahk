@@ -13,6 +13,7 @@
 
 #Requires AutoHotkey v2.0
 
+
 GetThreadStartAddr(ProcessID)
 {
     #DllLoad "ntdll.dll"
@@ -51,6 +52,7 @@ GetThreadStartAddr(ProcessID)
     DllCall("CloseHandle", "Ptr", hSnapshot)
     return StartAddr
 }
+
 
 ; =============================================================================================================================================================
 ; Example
