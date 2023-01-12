@@ -17,15 +17,15 @@ GetThreadStartAddr(ProcessID)
 {
     #DllLoad "ntdll.dll"
 
-    static TH32CS_SNAPTHREAD := 0x00000004
-    static THREAD_QUERY_INFORMATION := 0x0040
+    static TH32CS_SNAPTHREAD               := 0x00000004
+    static THREAD_QUERY_INFORMATION        := 0x0040
     static ThreadQuerySetWin32StartAddress := 9
 
     if !(hSnapshot := DllCall("CreateToolhelp32Snapshot", "UInt", TH32CS_SNAPTHREAD, "UInt", ProcessID, "Ptr"))
         throw OSError()
 
-    THREADENTRY32 := Buffer(28, 0)
-    NumPut("UInt", 28, THREADENTRY32, 0)
+    THREADENTRY32 := Buffer(28)
+    NumPut("UInt", THREADENTRY32.Size, THREADENTRY32, 0)
     if !(DllCall("Thread32First", "Ptr", hSnapshot, "Ptr", THREADENTRY32))
     {
         DllCall("CloseHandle", "Ptr", hSnapshot)
