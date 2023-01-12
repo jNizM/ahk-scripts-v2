@@ -1,7 +1,18 @@
-﻿; ===========================================================================================================================================================================
-; Gets the Hostname by the IP Adresse (Reverse Lookup) like nslookup.
-; Tested with AutoHotkey v2.0-a133
-; ===========================================================================================================================================================================
+﻿; =============================================================================================================================================================
+; Author ........: jNizM
+; Released ......: 2021-04-30
+; Modified ......: 2023-01-12
+; Tested with....: AutoHotkey v2.0.2 (x64)
+; Tested on .....: Windows 11 - 22H2 (x64)
+; Function ......: ReverseLookup( HostName )
+;
+; Parameter(s)...: IPAddr - the IP Address to be resolved
+;
+; Return ........: Gets the Hostname by the IP Adresse (Reverse Lookup) like nslookup.
+; =============================================================================================================================================================
+
+#Requires AutoHotkey v2.0
+
 
 ReverseLookup(IPAddr)
 {
@@ -9,37 +20,38 @@ ReverseLookup(IPAddr)
 	static INADDR_ANY     := 0x00000000
 	static INADDR_NONE    := 0xffffffff
 	static NI_MAXHOST     := 1025
+	static AF_INET        := 2
 
-	WSADATA := Buffer(394 + (A_PtrSize - 2) + A_PtrSize, 0)
-	if (DllCall("ws2_32\WSAStartup", "ushort", 0x0202, "ptr", WSADATA) != WSA_SUCCESS)
+	WSADATA := Buffer(394 + (A_PtrSize - 2) + A_PtrSize)
+	if (DllCall("ws2_32\WSAStartup", "UShort", 0x0202, "Ptr", WSADATA) != WSA_SUCCESS)
 	{
-		MsgBox("WSAStartup failed: " DllCall("ws2_32\WSAGetLastError"))
-		return -1
+		throw OSError(DllCall("ws2_32\WSAGetLastError"))
 	}
 
-	inaddr := DllCall("ws2_32\inet_addr", "astr", IPAddr, "uint")
+	inaddr := DllCall("ws2_32\inet_addr", "AStr", IPAddr, "UInt")
 	if (inaddr = INADDR_ANY) || (inaddr = INADDR_NONE)
 	{
-		MsgBox("inet_addr failed")
 		DllCall("ws2_32\WSACleanup")
-		return -1
+		throw OSError(DllCall("ws2_32\WSAGetLastError"))
 	}
 
-	Sockaddr := Buffer(16, 0)
-	NumPut("short", AF_INET := 2, Sockaddr, 0)
-	NumPut("ptr",   inaddr,       Sockaddr, 4)
+	Sockaddr := Buffer(16)
+	NumPut("Short", AF_INET, Sockaddr, 0)
+	NumPut("Ptr", inaddr, Sockaddr, 4)
 	HostName := Buffer(NI_MAXHOST << 1, 0)
-	if (DllCall("ws2_32\GetNameInfoW", "ptr", Sockaddr, "uint", Sockaddr.Size, "ptr", HostName, "uint", NI_MAXHOST, "ptr", 0, "uint", 0, "int", 0) != WSA_SUCCESS)
+	if (DllCall("ws2_32\GetNameInfoW", "Ptr", Sockaddr, "UInt", Sockaddr.Size, "Ptr", HostName, "UInt", NI_MAXHOST, "Ptr", 0, "UInt", 0, "Int", 0) != WSA_SUCCESS)
 	{
-		MsgBox("GetNameInfoW failed with error: " DllCall("ws2_32\WSAGetLastError"))
 		DllCall("ws2_32\WSACleanup")
-		return -1
+		throw OSError(DllCall("ws2_32\WSAGetLastError"))
 	}
 
 	DllCall("ws2_32\WSACleanup")
 	return StrGet(HostName)
 }
 
-; ===========================================================================================================================================================================
 
-MsgBox(ReverseLookup("1.1.1.1"))
+; =============================================================================================================================================================
+; Example
+; =============================================================================================================================================================
+
+MsgBox ReverseLookup("1.1.1.1")
