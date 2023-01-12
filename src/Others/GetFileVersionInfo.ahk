@@ -1,47 +1,53 @@
-﻿; ===========================================================================================================================================================================
-; Retrieves specified version information from the specified version-information resource.
-; Tested with AutoHotkey v2.0-a134
-; ===========================================================================================================================================================================
+﻿; =============================================================================================================================================================
+; Author ........: jNizM (Original by Lexikos)
+; Released ......: 2021-05-10
+; Modified ......: 2023-01-12
+; Tested with....: AutoHotkey v2.0.2 (x64)
+; Tested on .....: Windows 11 - 22H2 (x64)
+; Function ......: GetFileVersionInfo( FileName )
+;
+; Parameter(s)...: FileName - path to the file
+;
+; Return ........: Retrieves specified version information from the specified version-information resource.
+; =============================================================================================================================================================
+
+#Requires AutoHotkey v2.0
+
 
 GetFileVersionInfo(FileName)
 {
 	static StringTable := [ "Comments", "CompanyName", "FileDescription", "FileVersion", "InternalName", "LegalCopyright"
-						  , "LegalTrademarks", "OriginalFilename", "PrivateBuild", "ProductName", "ProductVersion", "SpecialBuild" ]
+	                      , "LegalTrademarks", "OriginalFilename", "PrivateBuild", "ProductName", "ProductVersion", "SpecialBuild" ]
 
-	if !(size := DllCall("version\GetFileVersionInfoSize", "str", FileName, "ptr", 0, "uint"))
+	if (Size := DllCall("version\GetFileVersionInfoSizeW", "Str", FileName, "Ptr", 0, "UInt"))
 	{
-		MsgBox("GetFileVersionInfoSize failed: " A_LastError)
-		return -1
-	}
-
-	data := Buffer(size, 0)
-	if !(DllCall("version\GetFileVersionInfo", "str", FileName, "uint", 0, "uint", data.size, "ptr", data))
-	{
-		MsgBox("GetFileVersionInfo failed: " A_LastError)
-		return -1
-	}
-
-	if !(DllCall("version\VerQueryValue", "ptr", data, "str", "\VarFileInfo\Translation", "ptr*", &buf := 0, "uint*", &len := 0))
-	{
-		MsgBox("VerQueryValue failed")
-		return -1
-	}
-
-	LangCP := Format("{:04X}{:04X}", NumGet(buf + 0, "ushort"), NumGet(buf + 2, "ushort"))
-	FileInfo := Map()
-	for index, value in StringTable
-	{
-		if (DllCall("version\VerQueryValue", "ptr", data, "str", "\StringFileInfo\" . LangCP . "\" value, "ptr*", &buf, "uint*", &len))
+		Data := Buffer(Size)
+		if (DllCall("version\GetFileVersionInfoW", "Str", FileName, "UInt", 0, "UInt", Data.Size, "Ptr", Data))
 		{
-			FileInfo[value] := StrGet(buf, len, "utf-16")
+			if (DllCall("version\VerQueryValueW", "Ptr", Data, "Str", "\VarFileInfo\Translation", "Ptr*", &Buf := 0, "UInt*", &Len := 0))
+			{
+				LangCP := Format("{:04X}{:04X}", NumGet(Buf + 0, "UShort"), NumGet(Buf + 2, "UShort"))
+				FileInfo := Map()
+				for index, value in StringTable
+				{
+					if (DllCall("version\VerQueryValueW", "Ptr", Data, "Str", "\StringFileInfo\" . LangCP . "\" value, "Ptr*", &Buf, "UInt*", &Len))
+					{
+						FileInfo[value] := StrGet(Buf, Len, "UTF-16")
+					}
+				}
+				return FileInfo
+			}
 		}
 	}
-
-	return FileInfo
+	throw OSError()
 }
 
-; ===========================================================================================================================================================================
+
+; =============================================================================================================================================================
+; Example
+; =============================================================================================================================================================
 
 FileVersionInfo := GetFileVersionInfo("C:\Program Files\AutoHotkey\AutoHotkey.exe")
 for key, value in FileVersionInfo
-	MsgBox(key ": " value)
+	output .= key ": " value "`n"
+MsgBox output
