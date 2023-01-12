@@ -1,5 +1,5 @@
-[b][size=180][color=#FB6601]My collection of useful AutoHotkey v2 scripts and functions[/color][/size][/b]
-Tested with AutoHotkey v2.0-beta.12
+[center][b][color=#FB6601][size=200]Collection of useful AutoHotkey v2 scripts and functions[/size][/color][/b][/center]
+[center]( [url=https://github.com/jNizM/ahk-scripts-v2]GitHub[/url] - Tested with AutoHotkey v2.0-beta.12 - v2.0.2 64-bit )[/center]
 
 
 [b][size=150]Source[/size][/b]
@@ -11,65 +11,72 @@ Tested with AutoHotkey v2.0-beta.12
 [list]
 [*][b]ComObject[/b]
 [list]
-[*]EnumInstalledApps (Gets general information about an application.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/ComObject/EnumInstalledApps.ahk]EnumInstalledApps[/url] (Gets general information about an application.)
 [/list]
 [*][b]FileObject[/b]
 [list]
-[*]FileCountLines (Count the number of lines in a text file.)
-[*]FileFindWord (Finds a specific word / string in a text file.)
-[*]FileReadLastLines (Read last x lines of a text file.)
-[*]GetFilePEHeader (Get the PE File Header information - Machine Type.)
-[/list]
-[*][b]Network[/b]
-[list]
-[*]GetAdaptersInfo (Gets network adapter information for the local computer.)
-[*]GetDnsServerList (Gets a list of DNS servers for the local computer.)
-[*]GetNetworkConnectivityHint (Retrieves the level and cost of network connectivity.)
-[*]ResolveHostname (Gets the IP Address from a Hostname.)
-[*]ReverseLookup (Gets the Hostname by the IP Adresse.)
-[/list]
-[*][b]NetworkManagement[/b]
-[list]
-[*]NetGetJoinInformation (Retrieves join status information for the specified computer.)
-[*]NetGroupEnum (Retrieves information about each global group in the security database, which is the SAM database or the Active Directory.)
-[*]NetGroupGetInfo (Retrieves information about a particular global group in the security database, which is the SAM database or the Active Directory.)
-[*]NetGroupGetUsers (Retrieves a list of the members in a particular global group in the security database, which is the SAM database or the Active Directory.)
-[*]NetLocalGroupEnum (Returns information about each local group account on the specified server.)
-[*]NetLocalGroupGetInfo (Retrieves information about a particular local group account on a server.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/FileObject/FileCountLines.ahk]FileCountLines[/url] (Count the number of lines in a text file.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/FileObject/FileFindString.ahk]FileFindWord[/url] (Finds a specific word / string in a text file.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/FileObject/FileReadLastLines.ahk]FileReadLastLines[/url] (Read last x lines of a text file.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/FileObject/GetFilePEHeader.ahk]GetFilePEHeader[/url] (Get the PE File Header information - Machine Type.)
 [/list]
 [*][b]Messages[/b]
 [list]
-[*]WM_DEVICECHANGE (Detecting Media Insertion or Removal.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Message/WM_DEVICECHANGE.ahk]WM_DEVICECHANGE[/url] (Detecting Media Insertion or Removal.)
+[/list]
+[*][b]Network[/b]
+[list]
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Network/GetAdaptersInfo.ahk]GetAdaptersInfo[/url] (Gets network adapter information for the local computer.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Network/GetDnsServerList.ahk]GetDnsServerList[/url] (Gets a list of DNS servers for the local computer.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Network/GetNetworkConnectivityHint.ahk]GetNetworkConnectivityHint[/url] (Retrieves the level and cost of network connectivity.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Network/ResolveHostname.ahk]ResolveHostname[/url] (Gets the IP Address from a Hostname.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Network/ReverseLookup.ahk]ReverseLookup[/url] (Gets the Hostname by the IP Adresse.)
+[/list]
+[*][b]NetworkManagement[/b]
+[list]
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/NetworkManagement/NetGetJoinInformation.ahk]NetGetJoinInformation[/url] (Retrieves join status information for the specified computer.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/NetworkManagement/NetGroupEnum.ahk]NetGroupEnum[/url] (Retrieves information about each global group in the security database, which is the SAM database or the Active Directory.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/NetworkManagement/NetGroupGetInfo.ahk]NetGroupGetInfo[/url] (Retrieves information about a particular global group in the security database, which is the SAM database or the Active Directory.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/NetworkManagement/NetGroupGetUsers.ahk]NetGroupGetUsers[/url] (Retrieves a list of the members in a particular global group in the security database, which is the SAM database or the Active Directory.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/NetworkManagement/NetLocalGroupEnum.ahk]NetLocalGroupEnum[/url] (Returns information about each local group account on the specified server.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/NetworkManagement/NetLocalGroupGetInfo.ahk]NetLocalGroupGetInfo[/url] (Retrieves information about a particular local group account on a server.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/NetworkManagement/NetLocalGroupGetMembers.ahk]NetLocalGNetLocalGroupGetMembersroupGetInfo[/url] (Retrieves a list of the members of a particular local group.)
 [/list]
 [*][b]Others[/b]
 [list]
-[*]CreateGUID (Creates an Globally Unique IDentifier)
-[*]CreateUUID (Creates an Universally Unique IDentifier)
-[*]GetFileOwner (Finding the Owner of a File or Folder)
-[*]GetFileVersionInfo (Retrieves specified version information from the specified version-information resource.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Others/CreateGUID.ahk]CreateGUID[/url] (Creates an Globally Unique IDentifier)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Others/CreateUUID.ahk]CreateUUID[/url] (Creates an Universally Unique IDentifier)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Others/GetFileOwner.ahk]GetFileOwner[/url] (Finding the Owner of a File or Folder)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Others/GetFileVersionInfo.ahk]GetFileVersionInfo[/url] (Retrieves specified version information from the specified version-information resource.)
+[/list]
+[*][b]Processes / Threads / Modules[/b]
+[list]
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/ProcessThreadModule/GetModuleBaseAddr.ahk]GetModuleBaseAddr[/url] (Retrieves the base address and size of the module in the context of the owning process.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/ProcessThreadModule/GetProcessThreads.ahk]GetProcessThreads[/url] (Retrieves a list of all threads in a process.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/ProcessThreadModule/GetThreadStartAddr.ahk]GetThreadStartAddr[/url] (Retrieves the start address of a thread.)
 [/list]
 [*][b]Strings[/b]
 [list]
-[*]Base64ToString (Converts a base64 string to a readable string.)
-[*]CountLeadingChar (Count how often a certain character occurs at the beginning of a string.)
-[*]GetCurrencyFormat (Formats a number string as a currency string for a locale specified by identifier.)
-[*]GetCurrencyFormatEx (Formats a number string as a currency string for a locale specified by name.)
-[*]GetDurationFormat (Formats a duration of time as a time string for a locale specified by identifier.)
-[*]GetDurationFormatEx (Formats a duration of time as a time string for a locale specified by name.)
-[*]GetNumberFormat (Formats a number string as a number string customized for a locale specified by identifier.)
-[*]GetNumberFormatEx (Formats a number string as a number string customized for a locale specified by name.)
-[*]StringToBase64 (Converts a readable string to a base64 string.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Strings/Base64ToString.ahk]Base64ToString[/url] (Converts a base64 string to a readable string.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Strings/CountLeadingChar.ahk]CountLeadingChar[/url] (Count how often a certain character occurs at the beginning of a string.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Strings/GetCurrencyFormat.ahk]GetCurrencyFormat[/url] (Formats a number string as a currency string for a locale specified by identifier.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Strings/GetCurrencyFormatEx.ahk]GetCurrencyFormatEx[/url] (Formats a number string as a currency string for a locale specified by name.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Strings/GetDurationFormat.ahk]GetDurationFormat[/url] (Formats a duration of time as a time string for a locale specified by identifier.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Strings/GetDurationFormatEx.ahk]GetDurationFormatEx[/url] (Formats a duration of time as a time string for a locale specified by name.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Strings/GetNumberFormat.ahk]GetNumberFormat[/url] (Formats a number string as a number string customized for a locale specified by identifier.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Strings/GetNumberFormatEx.ahk]GetNumberFormatEx[/url] (Formats a number string as a number string customized for a locale specified by name.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Strings/StringToBase64.ahk]StringToBase64[/url] (Converts a readable string to a base64 string.)
 [/list]
 [*][b]SystemInformation (NtQuerySystemInformation)[/b]
 [list]
-[*]SystemDeviceInformation (SYSTEM_DEVICE_INFORMATION)
-[*]SystemHandleInformation (SYSTEM_HANDLE_INFORMATION)
-[*]SystemPerformanceInformation (SYSTEM_PERFORMANCE_INFORMATION)
-[*]SystemProcessInformation (SYSTEM_PROCESS_INFORMATION)
-[*]SystemProcessorInformation (SYSTEM_PROCESSOR_INFORMATION)
-[*]SystemProcessorPerformanceInformation (SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION)
-[*]SystemProcessorPowerInformation (SYSTEM_PROCESSOR_POWER_INFORMATION)
-[*]SystemSecureBootInformation (SYSTEM_SECUREBOOT_INFORMATION)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/SystemInformation/SystemDeviceInformation.ahk]SystemDeviceInformation[/url] (SYSTEM_DEVICE_INFORMATION)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/SystemInformation/SystemHandleInformation.ahk]SystemHandleInformation[/url] (SYSTEM_HANDLE_INFORMATION)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/SystemInformation/SystemPerformanceInformation.ahk]SystemPerformanceInformation[/url] (SYSTEM_PERFORMANCE_INFORMATION)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/SystemInformation/SystemProcessInformation.ahk]SystemProcessInformation[/url] (SYSTEM_PROCESS_INFORMATION)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/SystemInformation/SystemProcessorInformation.ahk]SystemProcessorInformation[/url] (SYSTEM_PROCESSOR_INFORMATION)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/SystemInformation/SystemProcessorPerformanceInformation.ahk]SystemProcessorPerformanceInformation[/url] (SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/SystemInformation/SystemProcessorPowerInformation.ahk]SystemProcessorPowerInformation[/url] (SYSTEM_PROCESSOR_POWER_INFORMATION)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/SystemInformation/SystemSecureBootInformation.ahk]SystemSecureBootInformation[/url] (SYSTEM_SECUREBOOT_INFORMATION)
 [/list]
 [/list]
 
