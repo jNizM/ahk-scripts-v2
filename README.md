@@ -45,6 +45,7 @@
 
 
 - ### Processes / Threads / Modules
+	- GetModuleBaseAddr (Retrieves the base address and size of the module in the context of the owning process.)
 	- GetThreadStartAddr (Retrieves the start address of a thread.)
 
 
