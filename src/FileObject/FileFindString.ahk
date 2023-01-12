@@ -1,7 +1,19 @@
-﻿; ===========================================================================================================================================================================
-; Finds a specific word / string in a text file.
-; Tested with AutoHotkey v2.0-a132
-; ===========================================================================================================================================================================
+﻿; =============================================================================================================================================================
+; Author ........: jNizM
+; Released ......: 2021-04-23
+; Modified ......: 2023-01-12
+; Tested with....: AutoHotkey v2.0.2 (x64)
+; Tested on .....: Windows 11 - 22H2 (x64)
+; Function ......: FileFindString( FileName, Search )
+;
+; Parameter(s)...: FileName - path to the file
+;                  Search   - the word or string to search for
+;
+; Return ........: Finds a specific word / string in a text file.
+; =============================================================================================================================================================
+
+#Requires AutoHotkey v2.0
+
 
 FileFindString(FileName, Search)
 {
@@ -9,7 +21,7 @@ FileFindString(FileName, Search)
 		File := FileOpen(FileName, "r-d")
 	catch as Err
 	{
-		MsgBox("Can't open '" FileName "`n`n" Type(Err) ": " Err.Message)
+		MsgBox "Can't open '" FileName "`n`n" Type(Err) ": " Err.Message
 		return
 	}
 
@@ -26,7 +38,10 @@ FileFindString(FileName, Search)
 	return Found
 }
 
-; ===========================================================================================================================================================================
+
+; =============================================================================================================================================================
+; Example
+; =============================================================================================================================================================
 
 for Index, Value in FileFindString("C:\Windows\Logs\CBS\CBS.log", "CBS_E_INVALID_PACKAGE")
-	MsgBox("Line: " Index "`n`n" Value)
+	MsgBox "Line: " Index "`n`n" Value

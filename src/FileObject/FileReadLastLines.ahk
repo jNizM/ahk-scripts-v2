@@ -1,7 +1,19 @@
-﻿; ===========================================================================================================================================================================
-; Read last x lines of a text file.
-; Tested with AutoHotkey v2.0-a132
-; ===========================================================================================================================================================================
+﻿; =============================================================================================================================================================
+; Author ........: jNizM
+; Released ......: 2021-04-23
+; Modified ......: 2023-01-12
+; Tested with....: AutoHotkey v2.0.2 (x64)
+; Tested on .....: Windows 11 - 22H2 (x64)
+; Function ......: FileReadLastLines( FileName, [ LastLines ] )
+;
+; Parameter(s)...: FileName  - path to the file
+;                  LastLines - the number of last lines to be displayed
+;
+; Return ........: Read last x lines of a text file.
+; =============================================================================================================================================================
+
+#Requires AutoHotkey v2.0
+
 
 FileReadLastLines(FileName, LastLines := 5)
 {
@@ -9,7 +21,7 @@ FileReadLastLines(FileName, LastLines := 5)
 		File := FileOpen(FileName, "r-d")
 	catch as Err
 	{
-		MsgBox("Can't open '" FileName "`n`n" Type(Err) ": " Err.Message)
+		MsgBox "Can't open '" FileName "`n`n" Type(Err) ": " Err.Message
 		return
 	}
 
@@ -34,7 +46,10 @@ FileReadLastLines(FileName, LastLines := 5)
 	return GetLines
 }
 
-; ===========================================================================================================================================================================
+
+; =============================================================================================================================================================
+; Example
+; =============================================================================================================================================================
 
 for Index, Value in FileReadLastLines("C:\Windows\Logs\CBS\CBS.log", 10)
-	MsgBox("Line: " Index "`n`n" Value)
+	MsgBox "Line: " Index "`n`n" Value
