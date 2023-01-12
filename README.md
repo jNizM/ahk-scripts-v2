@@ -44,6 +44,10 @@
 	- GetFileVersionInfo (Retrieves specified version information from the specified version-information resource.)
 
 
+- ### Processes / Threads / Modules
+	- GetThreadStartAddr (Retrieves the start address of a thread.)
+
+
 - ### Strings
 	- Base64ToString (Converts a base64 string to a readable string.)
 	- CountLeadingChar (Count how often a certain character occurs at the beginning of a string.)
