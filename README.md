@@ -1,5 +1,5 @@
 # A collection of useful AutoHotkey v2 scripts and functions
-( [AHK forum](https://github.com/jNizM/ahk-scripts-v2) - Tested with AutoHotkey v2.0-beta.12 - v2.0.2 64-bit )
+( [AHK forum](https://www.autohotkey.com/boards/viewtopic.php?f=83&t=89720) - Tested with AutoHotkey v2.0-beta.12 - v2.0.2 64-bit )
 
 
 ## Functions & Script Examples
