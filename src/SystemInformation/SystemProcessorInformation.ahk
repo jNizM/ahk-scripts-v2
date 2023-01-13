@@ -1,7 +1,18 @@
-﻿; ===========================================================================================================================================================================
-; Returns a SYSTEM_PROCESSOR_INFORMATION structure from the NtQuerySystemInformation function.
-; Tested with AutoHotkey v2.0-beta.3
-; ===========================================================================================================================================================================
+﻿; =============================================================================================================================================================
+; Author ........: jNizM
+; Released ......: 2021-12-22
+; Modified ......: 2023-01-13
+; Tested with....: AutoHotkey v2.0.2 (x64)
+; Tested on .....: Windows 11 - 22H2 (x64)
+; Function ......: SystemProcessorInformation()
+;
+; Parameter(s)...: No parameters used
+;
+; Return ........: Returns a SYSTEM_PROCESSOR_INFORMATION structure from the NtQuerySystemInformation function.
+; =============================================================================================================================================================
+
+#Requires AutoHotkey v2.0
+
 
 SystemProcessorInformation()
 {
@@ -12,12 +23,12 @@ SystemProcessorInformation()
 	static STATUS_BUFFER_TOO_SMALL      := 0xC0000023
 	static SYSTEM_PROCESSOR_INFORMATION := 0x00000001
 
-	Buf := Buffer(0x000C, 0)
+	Buf := Buffer(0x000C)
 	NT_STATUS := DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", &Size := 0, "UInt")
 
 	while (NT_STATUS = STATUS_INFO_LENGTH_MISMATCH) || (NT_STATUS = STATUS_BUFFER_TOO_SMALL)
 	{
-		Buf := Buffer(Size, 0)
+		Buf := Buffer(Size)
 		NT_STATUS := DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PROCESSOR_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", &Size := 0, "UInt")
 	}
 
@@ -32,9 +43,12 @@ SystemProcessorInformation()
 		return PROCESSOR_INFORMATION
 	}
 
-	return false
+	throw OSError()
 }
 
-; Example ===================================================================================================================================================================
+
+; =============================================================================================================================================================
+; Example
+; =============================================================================================================================================================
 
 MsgBox SystemProcessorInformation()["MaximumProcessors"]

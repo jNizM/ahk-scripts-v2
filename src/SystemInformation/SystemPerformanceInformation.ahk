@@ -1,7 +1,18 @@
-﻿; ===========================================================================================================================================================================
-; Returns a SYSTEM_PERFORMANCE_INFORMATION structure from the NtQuerySystemInformation function.
-; Tested with AutoHotkey v2.0-beta.3
-; ===========================================================================================================================================================================
+﻿; =============================================================================================================================================================
+; Author ........: jNizM
+; Released ......: 2021-12-22
+; Modified ......: 2023-01-13
+; Tested with....: AutoHotkey v2.0.2 (x64)
+; Tested on .....: Windows 11 - 22H2 (x64)
+; Function ......: SystemPerformanceInformation()
+;
+; Parameter(s)...: No parameters used
+;
+; Return ........: Returns a SYSTEM_PERFORMANCE_INFORMATION structure from the NtQuerySystemInformation function.
+; =============================================================================================================================================================
+
+#Requires AutoHotkey v2.0
+
 
 SystemPerformanceInformation()
 {
@@ -12,12 +23,12 @@ SystemPerformanceInformation()
 	static STATUS_BUFFER_TOO_SMALL        := 0xC0000023
 	static SYSTEM_PERFORMANCE_INFORMATION := 0x00000002
 
-	Buf := Buffer(0x0158, 0)
+	Buf := Buffer(0x0158)
 	NT_STATUS := DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PERFORMANCE_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", &Size := 0, "UInt")
 
 	while (NT_STATUS = STATUS_INFO_LENGTH_MISMATCH) || (NT_STATUS = STATUS_BUFFER_TOO_SMALL)
 	{
-		Buf := Buffer(Size, 0)
+		Buf := Buffer(Size)
 		NT_STATUS := DllCall("ntdll\NtQuerySystemInformation", "Int", SYSTEM_PERFORMANCE_INFORMATION, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", &Size := 0, "UInt")
 	}
 
@@ -105,9 +116,12 @@ SystemPerformanceInformation()
 		return PERFORMANCE_INFORMATION
 	}
 
-	return false
+	throw OSError()
 }
 
-; Example ===================================================================================================================================================================
+
+; =============================================================================================================================================================
+; Example
+; =============================================================================================================================================================
 
 MsgBox SystemPerformanceInformation()["SystemCalls"]
