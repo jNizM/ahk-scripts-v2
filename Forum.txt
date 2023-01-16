@@ -22,6 +22,7 @@
 [/list]
 [*][b]Gui[/b]
 [list]
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Gui/DisableCloseButton.ahk]DisableCloseButton[/url] (Disables the GUI Close Button.)
 [*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Gui/TaskBarProgress.ahk]TaskBarProgress[/url] (Displays or updates a progress bar hosted in a taskbar button.)
 [/list]
 [*][b]Messages[/b]

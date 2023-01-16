@@ -16,7 +16,8 @@
 
 
 - ### Gui
-	- [TaskBarProgress](src/gui/TaskBarProgress.ahk) (Displays or updates a progress bar hosted in a taskbar button.)
+	- [DisableCloseButton](src/Gui/DisableCloseButton.ahk) (Disables the GUI Close Button.)
+	- [TaskBarProgress](src/Gui/TaskBarProgress.ahk) (Displays or updates a progress bar hosted in a taskbar button.)
 
 
 - ### Message
