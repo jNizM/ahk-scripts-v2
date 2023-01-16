@@ -1,5 +1,5 @@
 [center][b][color=#FB6601][size=200]Collection of useful AutoHotkey v2 scripts and functions[/size][/color][/b][/center]
-[center]( [url=https://github.com/jNizM/ahk-scripts-v2]GitHub[/url] - Tested with AutoHotkey v2.0-beta.12 - v2.0.2 64-bit )[/center]
+[center]( [url=https://github.com/jNizM/ahk-scripts-v2]GitHub[/url] - Tested with AutoHotkey v2.0.2 64-bit )[/center]
 
 
 [b][size=150]Source[/size][/b]
@@ -19,6 +19,10 @@
 [*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/FileObject/FileFindString.ahk]FileFindWord[/url] (Finds a specific word / string in a text file.)
 [*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/FileObject/FileReadLastLines.ahk]FileReadLastLines[/url] (Read last x lines of a text file.)
 [*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/FileObject/GetFilePEHeader.ahk]GetFilePEHeader[/url] (Get the PE File Header information - Machine Type.)
+[/list]
+[*][b]Gui[/b]
+[list]
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Gui/TaskBarProgress.ahk]TaskBarProgress[/url] (Displays or updates a progress bar hosted in a taskbar button.)
 [/list]
 [*][b]Messages[/b]
 [list]

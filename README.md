@@ -15,6 +15,10 @@
 	- [GetFilePEHeader](src/FileObject/GetFilePEHeader.ahk) (Get the PE File Header information - Machine Type.)
 
 
+- ### Gui
+	- [TaskBarProgress](src/gui/TaskBarProgress.ahk) (Displays or updates a progress bar hosted in a taskbar button.)
+
+
 - ### Message
 	- [WM_DEVICECHANGE](src/Message/WM_DEVICECHANGE.ahk) (Detecting Media Insertion or Removal.)
 
