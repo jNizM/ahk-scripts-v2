@@ -16,6 +16,7 @@
 
 
 - ### Gui
+	- [CreateGradient](src/Gui/CreateGradient.ahk) (Creates a gradient bitmap for picture controls.)
 	- [DisableCloseButton](src/Gui/DisableCloseButton.ahk) (Disables the GUI Close Button.)
 	- [DisableMove](src/Gui/DisableMove.ahk) (Disables the GUI Move function.)
 	- [TaskBarProgress](src/Gui/TaskBarProgress.ahk) (Displays or updates a progress bar hosted in a taskbar button.)
