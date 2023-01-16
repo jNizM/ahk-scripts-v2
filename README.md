@@ -54,6 +54,7 @@
 	- [GetModuleBaseAddr](src/ProcessThreadModule/GetModuleBaseAddr.ahk) (Retrieves the base address and size of the module in the context of the owning process.)
 	- [GetProcessThreads](src/ProcessThreadModule/GetProcessThreads.ahk) (Retrieves a list of all threads in a process.)
 	- [GetThreadStartAddr](src/ProcessThreadModule/GetThreadStartAddr.ahk) (Retrieves the start address of a thread.)
+	- [IsProcessElevated](src/ProcessThreadModule/IsProcessElevated.ahk) (Retrieves whether a token has elevated privileges.)
 
 
 - ### Strings

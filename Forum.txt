@@ -60,6 +60,7 @@
 [*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/ProcessThreadModule/GetModuleBaseAddr.ahk]GetModuleBaseAddr[/url] (Retrieves the base address and size of the module in the context of the owning process.)
 [*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/ProcessThreadModule/GetProcessThreads.ahk]GetProcessThreads[/url] (Retrieves a list of all threads in a process.)
 [*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/ProcessThreadModule/GetThreadStartAddr.ahk]GetThreadStartAddr[/url] (Retrieves the start address of a thread.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/ProcessThreadModule/IsProcessElevated.ahk]IsProcessElevated[/url] (Retrieves whether a token has elevated privileges.)
 [/list]
 [*][b]Strings[/b]
 [list]
