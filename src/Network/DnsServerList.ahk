@@ -28,7 +28,7 @@ DnsServerList()
         DNS_SERVER := Array()
         loop NumGet(Buf, 0, "UInt")
         {
-            DNS_SERVER.Push(DllCall("ws2_32\inet_ntoa", "uint", NumGet(Buf, 4 * A_Index, "UInt"), "astr"))
+            DNS_SERVER.Push(DllCall("ws2_32\inet_ntoa", "UInt", NumGet(Buf, 4 * A_Index, "UInt"), "AStr"))
         }
         return DNS_SERVER
     }
