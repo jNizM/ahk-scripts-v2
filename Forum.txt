@@ -33,6 +33,7 @@
 [/list]
 [*][b]Network[/b]
 [list]
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Network/DnsServerList.ahk]DnsServerList[/url] (Gets a list of DNS servers for the local computer.)
 [*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Network/GetAdaptersInfo.ahk]GetAdaptersInfo[/url] (Gets network adapter information for the local computer.)
 [*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Network/GetDnsServerList.ahk]GetDnsServerList[/url] (Gets a list of DNS servers for the local computer.)
 [*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Network/GetNetworkConnectivityHint.ahk]GetNetworkConnectivityHint[/url] (Retrieves the level and cost of network connectivity.)
