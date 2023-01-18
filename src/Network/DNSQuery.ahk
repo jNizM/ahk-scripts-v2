@@ -24,7 +24,7 @@ DNSQuery(Name, Type, Options := 0)
     static STATUS_SUCCESS     := 0
     static DnsFreeRecordList  := 1
     static RECORD_DATA        := (A_PtrSize * 2) + 16
-    static DNS_TYPE := Map("A", 0x0001, "NS", 0x0002, "CNAME", 0x0005, "PTR", 0x000c, "MX", 0x000f, "TEXT", 0x0010, "AAAA", 0x001c)
+    static DNS_TYPE := Map("A", 0x0001, "NS", 0x0002, "CNAME", 0x0005, "SOA", 0x0006, "PTR", 0x000c, "MX", 0x000f, "TEXT", 0x0010, "AAAA", 0x001c)
 
     if !(DNS_TYPE.Has(Type))
         throw Error()
@@ -48,6 +48,16 @@ DNSQuery(Name, Type, Options := 0)
                 case DNS_TYPE["NS"], DNS_TYPE["CNAME"], DNS_TYPE["PTR"]:
                 {
                     LIST["NameHost"] := StrGet(NumGet(Addr, RECORD_DATA, "Ptr"))
+                }
+                case DNS_TYPE["SOA"]:
+                {
+                    LIST["NamePrimaryServer"] := StrGet(NumGet(Addr, RECORD_DATA, "Ptr"))
+                    LIST["NameAdministrator"] := StrGet(NumGet(Addr + 8, RECORD_DATA, "Ptr"))
+                    LIST["SerialNo"]          := NumGet(Addr + 16, RECORD_DATA, "UInt")
+                    LIST["Refresh"]           := NumGet(Addr + 20, RECORD_DATA, "UInt")
+                    LIST["Retry"]             := NumGet(Addr + 24, RECORD_DATA, "UInt")
+                    LIST["Expire"]            := NumGet(Addr + 28, RECORD_DATA, "UInt")
+                    LIST["DefaultTtl"]        := NumGet(Addr + 32, RECORD_DATA, "UInt")
                 }
                 case DNS_TYPE["MX"]:
                 {
@@ -120,5 +130,9 @@ for i, v in DNS := DNSQuery("google.com", "TEXT")
         MsgBox k ": " v
 
 for i, v in DNS := DNSQuery("google.com", "MX")
+    for k, v in DNS[i]
+        MsgBox k ": " v
+
+for i, v in DNS := DNSQuery("google.com", "SOA")
     for k, v in DNS[i]
         MsgBox k ": " v
