@@ -28,6 +28,7 @@
 
 - ### Network
 	- [DnsServerList](src/Network/DnsServerList.ahk) (Gets a list of DNS servers for the local computer.)
+	- [DNSQuery](src/Network/DNSQuery.ahk) (Retrieves the Resource Record (RR) depends on DNS Record Type.)
 	- [GetAdaptersInfo](src/Network/GetAdaptersInfo.ahk) (Gets network adapter information for the local computer.)
 	- [GetDnsServerList](src/Network/GetDnsServerList.ahk) (Gets a list of DNS servers for the local computer.)
 	- [GetNetworkConnectivityHint](src/Network/GetNetworkConnectivityHint.ahk) (Retrieves the level and cost of network connectivity.)
