@@ -1,5 +1,5 @@
 # A collection of useful AutoHotkey v2 scripts and functions
-( [AHK forum](https://www.autohotkey.com/boards/viewtopic.php?f=83&t=89720) - Tested with AutoHotkey v2.0-beta.12 - v2.0.2 64-bit )
+( [AHK forum](https://www.autohotkey.com/boards/viewtopic.php?f=83&t=89720) - Tested with AutoHotkey v2.0.2 64-bit )
 
 
 ## Functions & Script Examples
@@ -55,6 +55,7 @@
 
 - ### Processes / Threads / Modules
 	- [GetModuleBaseAddr](src/ProcessThreadModule/GetModuleBaseAddr.ahk) (Retrieves the base address and size of the module in the context of the owning process.)
+	- [GetProcessHandles](src/ProcessThreadModule/GetProcessHandles.ahk) (Retrieves all Handles in the context of the owning process.)
 	- [GetProcessThreads](src/ProcessThreadModule/GetProcessThreads.ahk) (Retrieves a list of all threads in a process.)
 	- [GetThreadStartAddr](src/ProcessThreadModule/GetThreadStartAddr.ahk) (Retrieves the start address of a thread.)
 	- [IsProcessElevated](src/ProcessThreadModule/IsProcessElevated.ahk) (Retrieves whether a token has elevated privileges.)
