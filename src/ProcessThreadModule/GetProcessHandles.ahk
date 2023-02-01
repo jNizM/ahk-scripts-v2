@@ -22,6 +22,8 @@ GetProcessHandles(ProcessID)
     static PROCESS_DUP_HANDLE        := 0x0040
     static TOKEN_ADJUST_PRIVILEGES   := 0x0020
     static DUPLICATE_SAME_ACCESS     := 0x00000002
+    static OBJECT_NAME_INFORMATION   := 1
+    static OBJECT_TYPE_INFORMATION   := 2
     static hCurrentProcess           := DllCall("GetCurrentProcess", "Ptr")
 
     hToken   := OpenProcessToken(hCurrentProcess, TOKEN_ADJUST_PRIVILEGES)
@@ -39,8 +41,8 @@ GetProcessHandles(ProcessID)
         if !(hDublicate := DuplicateObject(hProcess, hCurrentProcess, HandleValue, DUPLICATE_SAME_ACCESS))
             continue
         PH["Handle"] := HandleValue
-        PH["Name"]   := ObjectNameInformation(hDublicate)
-        PH["Type"]   := ObjectTypeInformation(hDublicate)
+        PH["Name"]   := QueryObject(hDublicate, OBJECT_NAME_INFORMATION)
+        PH["Type"]   := QueryObject(hDublicate, OBJECT_TYPE_INFORMATION)
         PH["Path"]   := GetFinalPathNameByHandle(hDublicate)
         ProcessHandles[A_Index] := PH
         CloseHandle(hDublicate)
@@ -94,32 +96,23 @@ GetProcessHandles(ProcessID)
         return LUID
     }
 
-    ObjectNameInformation(Handle)
+    QueryObject(Handle, OBJECT_INFORMATION_CLASS)
     {
-        static STATUS_SUCCESS        := 0x00000000
-        static ObjectNameInformation := 1
+        static STATUS_SUCCESS := 0x00000000
 
-        DllCall("ntdll\NtQueryObject", "Ptr", Handle, "UInt", ObjectNameInformation, "Ptr", 0, "UInt", 0, "uint*", &Size := 0, "UInt")
+        DllCall("ntdll\NtQueryObject", "Ptr", Handle, "UInt", OBJECT_INFORMATION_CLASS, "Ptr", 0, "UInt", 0, "UInt*", &Size := 0, "UInt")
         Buf := Buffer(Size, 0)
-        NT_STATUS := DllCall("ntdll\NtQueryObject", "Ptr", Handle, "UInt", ObjectNameInformation, "Ptr", Buf.Ptr, "UInt", Buf.Size, "uint*", &Size := 0, "UInt")
+        NT_STATUS := DllCall("ntdll\NtQueryObject", "Ptr", Handle, "UInt", OBJECT_INFORMATION_CLASS, "Ptr", Buf.Ptr, "UInt", Buf.Size, "UInt*", &Size := 0, "UInt")
         if (NT_STATUS = STATUS_SUCCESS)
         {
-            return StrGet(NumGet(buf, A_PtrSize, "uptr"), NumGet(buf, 0, "ushort") // 2, "UTF-16")
-        }
-        return
-    }
-
-    ObjectTypeInformation(Handle)
-    {
-        static STATUS_SUCCESS        := 0x00000000
-        static ObjectTypeInformation := 2
-
-        DllCall("ntdll\NtQueryObject", "Ptr", Handle, "UInt", ObjectTypeInformation, "Ptr", 0, "UInt", 0, "uint*", &Size := 0, "UInt")
-        Buf := Buffer(Size, 0)
-        NT_STATUS := DllCall("ntdll\NtQueryObject", "Ptr", Handle, "UInt", ObjectTypeInformation, "Ptr", Buf.Ptr, "UInt", Buf.Size, "uint*", &Size := 0, "UInt")
-        if (NT_STATUS = STATUS_SUCCESS)
-        {
-            return StrGet(NumGet(buf, A_PtrSize, "uptr"), NumGet(buf, 0, "ushort") // 2, "UTF-16")
+            switch OBJECT_INFORMATION_CLASS
+            {
+                case 1:
+                    ObjectInformation := StrGet(NumGet(buf, A_PtrSize, "UPtr"), NumGet(buf, 0, "UShort") // 2, "UTF-16")
+                case 2:
+                    ObjectInformation .= StrGet(NumGet(buf, A_PtrSize, "UPtr"), NumGet(buf, 0, "UShort") // 2, "UTF-16")
+            }
+            return ObjectInformation
         }
         return
     }
@@ -182,7 +175,7 @@ GetProcessHandles(ProcessID)
 ; Example
 ; =============================================================================================================================================================
 
-ProcessID := 21508
+ProcessID := 1284
 
 Main := Gui("+Resize +MinSize1024x576")
 Main.MarginX := 10
