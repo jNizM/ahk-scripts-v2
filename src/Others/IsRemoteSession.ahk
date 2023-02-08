@@ -19,18 +19,14 @@ IsRemoteSession()
     #DllLoad "wtsapi32.dll"
 
     static WTS_CURRENT_SERVER_HANDLE := 0
-    static WTS_CURRENT_SESSION       := -1
-    static WTSSessionId              := 4
     static WTSIsRemoteSession        := 29
+    static ProcessId                 := DllCall("kernel32\GetCurrentProcessId")
 
-    if !(DllCall("wtsapi32\WTSQuerySessionInformation", "Ptr", WTS_CURRENT_SERVER_HANDLE, "UInt", WTS_CURRENT_SESSION, "Int", WTSSessionId, "Ptr*", &Buf := 0, "UInt*", &Size := 0))
-    {
-        DllCall("wtsapi32\WTSFreeMemory", "Ptr", Buf)
+    ; retrieves the Remote Desktop Services session associated with a specified process
+    if !(DllCall("kernel32\ProcessIdToSessionId", "UInt", ProcessId, "UInt*", &SessionId := 0))
         throw OSError()
-    }
-    SessionId := NumGet(Buf, "UInt")
-    DllCall("wtsapi32\WTSFreeMemory", "Ptr", Buf)
 
+    ; retrieves session information for the specified session on the specified Remote Desktop Session Host (RD Session Host)
     if !(DllCall("wtsapi32\WTSQuerySessionInformation", "Ptr", WTS_CURRENT_SERVER_HANDLE, "UInt", SessionId, "Int", WTSIsRemoteSession, "Ptr*", &Buf := 0, "UInt*", &Size := 0))
     {
         DllCall("wtsapi32\WTSFreeMemory", "Ptr", Buf)
