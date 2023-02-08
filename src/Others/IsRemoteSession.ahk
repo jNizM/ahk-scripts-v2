@@ -23,7 +23,7 @@ IsRemoteSession()
     static WTSSessionId              := 4
     static WTSIsRemoteSession        := 29
 
-    if !(DllCall("wtsapi32\WTSQuerySessionInformation", "Ptr", WTS_CURRENT_SERVER_HANDLE, "UInt", WTS_CURRENT_SESSION, "Int", WTSSessionId, "Ptr*", &Buf := 0, "uint*", &Size := 0))
+    if !(DllCall("wtsapi32\WTSQuerySessionInformation", "Ptr", WTS_CURRENT_SERVER_HANDLE, "UInt", WTS_CURRENT_SESSION, "Int", WTSSessionId, "Ptr*", &Buf := 0, "UInt*", &Size := 0))
     {
         DllCall("wtsapi32\WTSFreeMemory", "Ptr", Buf)
         throw OSError()
@@ -31,7 +31,7 @@ IsRemoteSession()
     SessionId := NumGet(Buf, "UInt")
     DllCall("wtsapi32\WTSFreeMemory", "Ptr", Buf)
 
-    if !(DllCall("wtsapi32\WTSQuerySessionInformation", "Ptr", WTS_CURRENT_SERVER_HANDLE, "UInt", SessionId, "Int", WTSIsRemoteSession, "Ptr*", &Buf := 0, "uint*", &Size := 0))
+    if !(DllCall("wtsapi32\WTSQuerySessionInformation", "Ptr", WTS_CURRENT_SERVER_HANDLE, "UInt", SessionId, "Int", WTSIsRemoteSession, "Ptr*", &Buf := 0, "UInt*", &Size := 0))
     {
         DllCall("wtsapi32\WTSFreeMemory", "Ptr", Buf)
         throw OSError()
