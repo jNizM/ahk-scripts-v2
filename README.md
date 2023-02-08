@@ -51,6 +51,7 @@
 	- [CreateUUID](src/Others/CreateUUID.ahk) (Creates an Universally Unique IDentifier)
 	- [GetFileOwner](src/Others/GetFileOwner.ahk) (Finding the Owner of a File or Folder)
 	- [GetFileVersionInfo](src/Others/GetFileVersionInfo.ahk) (Retrieves specified version information from the specified version-information resource.)
+	- [IsRemoteSession](src/Others/IsRemoteSession.ahk) (Returns TRUE that the current session is a remote session, and FALSE that the current session is a local session.)
 
 
 - ### Processes / Threads / Modules

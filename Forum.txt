@@ -57,6 +57,7 @@
 [*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Others/CreateUUID.ahk]CreateUUID[/url] (Creates an Universally Unique IDentifier)
 [*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Others/GetFileOwner.ahk]GetFileOwner[/url] (Finding the Owner of a File or Folder)
 [*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Others/GetFileVersionInfo.ahk]GetFileVersionInfo[/url] (Retrieves specified version information from the specified version-information resource.)
+[*][url=https://github.com/jNizM/ahk-scripts-v2/blob/main/src/Others/IsRemoteSession.ahk]IsRemoteSession[/url] (Returns TRUE that the current session is a remote session, and FALSE that the current session is a local session.)
 [/list]
 [*][b]Processes / Threads / Modules[/b]
 [list]
